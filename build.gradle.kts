@@ -6,6 +6,11 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    testImplementation(kotlin("test"))
+    implementation("org.junit.jupiter:junit-jupiter:5.9.0")
+}
+
 tasks {
     sourceSets {
         main {
@@ -16,4 +21,8 @@ tasks {
     wrapper {
         gradleVersion = "7.6"
     }
+}
+
+tasks.test {
+    useJUnitPlatform()
 }
