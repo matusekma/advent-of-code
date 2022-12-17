@@ -2,16 +2,17 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 
-internal class Day17Test {
+internal class Day05Test {
 
-    private val testInput = readInput("Day17_test")
+    private val day05 = Day05()
+    private val testInput = readInput("Day05_test")
 
     @Nested
     inner class Part1 {
 
         @Test
         fun `check example input`() {
-            assertEquals(3068, Day17().part1(testInput, 2022))
+            assertEquals(2, day05.part1(testInput))
         }
 
     }
@@ -21,7 +22,7 @@ internal class Day17Test {
 
         @Test
         fun `check example input`() {
-            assertEquals(1514285714288, Day17().part2(testInput))
+            assertEquals(4, day05.part2(testInput))
         }
 
     }
