@@ -73,7 +73,7 @@ class Day19 {
 
         // build robot from previous resources - calculate all possibilities or don't build
         val possibleNextStates =
-            getNextPossibleStates(bluePrint, state)
+            getPossibleRobotBuildStates(bluePrint, state)
 
         // collect resources with robots of current config
         val results = possibleNextStates
@@ -81,6 +81,7 @@ class Day19 {
                 var ore = it.ore + state.oreRobots
                 var clay = it.clay + state.clayRobots
                 var obsidian = it.obsidian + state.obsidianRobots
+                // throw away resources not needed
                 val maxOreNeeded = bluePrint.maxOreNeeded * (it.timeLeft) - state.oreRobots * (it.timeLeft - 1)
                 if (ore >= maxOreNeeded) {
                     ore = maxOreNeeded
@@ -112,7 +113,7 @@ class Day19 {
         return 0
     }
 
-    private fun getNextPossibleStates(
+    private fun getPossibleRobotBuildStates(
         bluePrint: BluePrint,
         state: RobotsState
     ): List<RobotsState> {
@@ -125,6 +126,7 @@ class Day19 {
                 )
             )
         }
+        //clay
         if (bluePrint.obsidianRobotClayCost > state.clayRobots && bluePrint.clayRobotOreCost <= state.ore) {
             possibleNextStates.add(
                 state.copy(
