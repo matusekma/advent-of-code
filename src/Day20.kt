@@ -54,7 +54,7 @@ class Day20 {
         }
     }
 
-    fun mixNumber(
+    fun mixNumberLong(
         i: Int,
         n: Long,
         size: Int,
@@ -101,7 +101,7 @@ class Day20 {
                 val n = number.value
                 if (n == 0L) continue
 
-                mixNumber(i, n, size, numberArray, number)
+                mixNumberLong(i, n, size, numberArray, number)
                 //println(numberArray.joinToString(",") { it.value.toString() })
             }
         }
